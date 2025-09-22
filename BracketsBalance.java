@@ -30,9 +30,26 @@ class BracketsBalance {
     private boolean isBalanced(String exp) {
 
         // INSERT YOUR CODE HERE 
-
-        return false; // dummy answer for startup code
-
+        final String left = "({[";
+        final String right = ")}]";
+        Stack <Character> stacked = new ArrayStack<Character>();
+        for (char c : exp.toCharArray()){
+            if (left.indexOf(c)!=-1){ //index -1 means its not in there - if its an opening bracket
+                stacked.push(c); //add to the stack
+            }
+            else if (right.indexOf(c)!=-1){ //if its a closing bracket
+                if(stacked.isEmpty()){ //if theres a closing with no corresponding opening
+                    return false;
+                }
+                if(right.indexOf(c)!=left.indexOf(stacked.pop()));{ 
+                    //if the most recent opening doesnt correspond to the closing 
+                    return false;
+                }
+            }
+            else{}
+        }
+        return stacked.isEmpty();
+        //each opening had an appropriate closing, so it was popped
     }
 
     /**
