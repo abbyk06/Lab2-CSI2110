@@ -41,7 +41,7 @@ class BracketsBalance {
                 if(stacked.isEmpty()){ //if theres a closing with no corresponding opening
                     return false;
                 }
-                if(right.indexOf(c)!=left.indexOf(stacked.pop()));{ 
+                if(right.indexOf(c)!=left.indexOf(stacked.pop())){ 
                     //if the most recent opening doesnt correspond to the closing 
                     return false;
                 }
